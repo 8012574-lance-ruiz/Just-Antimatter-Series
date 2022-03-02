@@ -1,3 +1,4 @@
+
 class Grid {
   constructor(posX, posY, sizeX, sizeY, rows, cols, cellClass) {
   
@@ -27,48 +28,35 @@ class Grid {
     this.position = {x = 1, y = 0}
     this.size = {x = 1, y = 5}
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     */
+
+    this.access = [];
+  
     this.x = posX;
     this.y = posY;
     this.sizeX = sizeX;
     this.sizeY = sizeY;
+    this.numRows = rows;
+    this.numCols = cols;
+
     this.cellSizeX = sizeX / this.numRows;
     this.cellSizeY = sizeY / this.numCols;
   
-    this.numRows = rows;
-    this.numCols = cols;
+   
     
-    this.access = [];
+    
+
     let xOffset = posX;
     let yOffset = posY;
     
     for (let row = 0; row < rows; row++) {
       this.access[row] = [];
       for (let col = 0; col < cols; col++) {
-        this.access[row][col] = new cellClass(row, col);
+        this.access[row][col] = new cellClass(row, col, xOffset, yOffset, this.cellSizeX, this.cellSizeY);
+        xOffset += this.cellSizeX;
       }
-
+      yOffset += this.cellSizeY;
+    }
   }
   
   getCellsInRow(row) {
@@ -80,7 +68,7 @@ class Grid {
   
   getCellsInCol(col) {
     if (col < this.numCols && col >= 0) {
-      return this.access.map(function(value,index) { return value[col]; });
+      return this.access.map(function(value, index) { return value[col]; });
     }
     print("ERR: Col " + col + " is out-of-bounds | min: 0, max: " + this.numCols);
 }
@@ -95,6 +83,7 @@ class Grid {
   
   
   debugRender() {
+    print('t')
     for (let row = 0; row < this.numRows; row++) {
       for (let col = 0; col < this.numCols; col++) {
         let cell = this.access[row][col]
