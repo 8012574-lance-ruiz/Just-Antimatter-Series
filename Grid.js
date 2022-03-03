@@ -10,19 +10,16 @@ class Grid {
     this.height = 1
     
   
-    
     this.posX = 1
     this.posY = 1
     this.sizeX = 1
     this.sizeY = 1
-    
-    
+      
     
     this.positionX = 1
     this.positionY = 1
     this.sizeX = 1
     this.sizeY = 1
-    
     
     
     this.position = {x = 1, y = 0}
@@ -56,6 +53,7 @@ class Grid {
         xOffset += this.cellSizeX;
       }
       yOffset += this.cellSizeY;
+      xOffset = 0;
     }
   }
   
@@ -87,6 +85,7 @@ class Grid {
     for (let row = 0; row < this.numRows; row++) {
       for (let col = 0; col < this.numCols; col++) {
         let cell = this.access[row][col]
+        cell.color = color(round(random(0, 1))*255, round(random(0, 1))*255, round(random(0, 1))*255)
         cell.render();
       }
     }

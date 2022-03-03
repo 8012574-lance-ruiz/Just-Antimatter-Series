@@ -19,6 +19,6 @@ class Cell {
     fill(this.color || color(255, 0, 255));
     rect(this.x, this.y, this.width, this.height);
     
-    line(this.x, this.y, this.x + 2, this.y + 2);
+    line(this.x, this.y, this.x + 50, this.y + 50);
   }
 }
