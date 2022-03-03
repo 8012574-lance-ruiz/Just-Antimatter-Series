@@ -81,7 +81,6 @@ class Grid {
   
   
   debugRender() {
-    print('t')
     for (let row = 0; row < this.numRows; row++) {
       for (let col = 0; col < this.numCols; col++) {
         let cell = this.access[row][col]
