@@ -36,24 +36,24 @@ class Grid {
     this.numRows = rows;
     this.numCols = cols;
 
-    this.cellSizeX = sizeX / this.numRows;
-    this.cellSizeY = sizeY / this.numCols;
+    this.cellSizeX = this.sizeX / this.numCols;
+    this.cellSizeY = this.sizeY / this.numRows;
   
    
     
     
-
-    let xOffset = posX;
-    let yOffset = posY;
+    // start at this grid's origin point
+    let xOffset = this.x;
+    let yOffset = this.y;
     
-    for (let row = 0; row < rows; row++) {
+    for (let row = 0; row < this.numRows; row++) {
       this.access[row] = [];
-      for (let col = 0; col < cols; col++) {
+      for (let col = 0; col < this.numCols; col++) {
         this.access[row][col] = new cellClass(row, col, xOffset, yOffset, this.cellSizeX, this.cellSizeY);
         xOffset += this.cellSizeX;
       }
       yOffset += this.cellSizeY;
-      xOffset = 0;
+      xOffset = this.x;
     }
   }
   
@@ -84,7 +84,8 @@ class Grid {
     for (let row = 0; row < this.numRows; row++) {
       for (let col = 0; col < this.numCols; col++) {
         let cell = this.access[row][col]
-        cell.color = color(round(random(0, 1))*255, round(random(0, 1))*255, round(random(0, 1))*255)
+        //cell.color = color(random(1,255), random(1,255), random(1,255))
+        //cell.color = color(round(random(0, 1))*255, round(random(0, 1))*255, round(random(0, 1))*255)
         cell.render();
       }
     }

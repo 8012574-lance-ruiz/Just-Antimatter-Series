@@ -6,7 +6,7 @@ class Cell {
     this.y = y;
     this.width = cellWidth;
     this.height = cellHeight;
-    print(this)
+    //print(this)
     
     let evenRow = row % 2 === 0;
     let evenCol = col % 2 === 0;
