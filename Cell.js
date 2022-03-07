@@ -6,7 +6,7 @@ class Cell {
     this.y = y;
     this.width = cellWidth;
     this.height = cellHeight;
-    print(this)
+    print(this);
     
     let evenRow = row % 2 === 0;
     let evenCol = col % 2 === 0;
@@ -19,6 +19,6 @@ class Cell {
     fill(this.color || color(255, 0, 255));
     rect(this.x, this.y, this.width, this.height);
     
-    line(this.x, this.y, this.x + 50, this.y + 50);
+    //line(this.x, this.y, this.x + 50, this.y + 50);
   }
 }

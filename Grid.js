@@ -68,7 +68,7 @@ class Grid {
     if (col < this.numCols && col >= 0) {
       return this.access.map(function(value, index) { return value[col]; });
     }
-    print("ERR: Col " + col + " is out-of-bounds | min: 0, max: " + this.numCols);
+    print("ERR: Col "+ col + " is out-of-bounds | min: 0, max: " + this.numCols);
 }
   
   getCell(row, col) {
@@ -79,13 +79,11 @@ class Grid {
     } else { print("ERR: Row " + row + " is out-of-bounds _ min: 0, max: " + this.numRows); }
   }
   
-  
   debugRender() {
-    print('t')
     for (let row = 0; row < this.numRows; row++) {
       for (let col = 0; col < this.numCols; col++) {
         let cell = this.access[row][col]
-        cell.color = color(round(random(0, 1))*255, round(random(0, 1))*255, round(random(0, 1))*255)
+        cell.color = color(round(random(0, 1))*255)
         cell.render();
       }
     }
